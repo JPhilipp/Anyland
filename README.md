@@ -5,4 +5,6 @@
 
 <img src="Screenshot.png">
 
-For more, see <a href="http://anyland.com">Anyland.com</a>
+<img src="Uses.png">
+
+For more, including data and in-VR script language references, see <a href="http://anyland.com">Anyland.com</a>
