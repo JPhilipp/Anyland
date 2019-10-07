@@ -7,4 +7,6 @@
 
 <img src="Uses.png">
 
-For more, including data and in-VR script language references, see <a href="http://anyland.com">Anyland.com</a>
+For more, including data and in-VR script language references, see <a href="http://anyland.com">Anyland.com</a>.
+
+Anyland is co-created with Scott Lowe, and supported by all of you <a href="https://www.patreon.com/anyland">Patreons</a>!
