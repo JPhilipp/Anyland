@@ -17,9 +17,6 @@ public static class Misc
 
     public static bool[] trueFalse = new bool[] { true, false };
 
-    private static byte[] encryptKey = new byte[8] { 1, 2, 3, 4, 5, 6, 7, 8 };
-    private static byte[] encryptIv = new byte[8] { 1, 2, 3, 4, 5, 6, 7, 8 };
-
     public static Vector3? PlayerPrefsGetVector3(string key)
     {
         Vector3? vector = null;
@@ -132,26 +129,6 @@ public static class Misc
         // Needed to reset for further randomization if one had to
         // seed it before with e.g. UnityEngine.Random.InitState(1)
         UnityEngine.Random.seed = System.Environment.TickCount;
-    }
-
-    public static string SimpleEncrypt(string text)
-    {
-        // Not sure how strong, but used for non-critical stuff, like making it less
-        // quick to edit local data files
-        SymmetricAlgorithm algorithm = DES.Create();
-        ICryptoTransform transform = algorithm.CreateEncryptor(encryptKey, encryptIv);
-        byte[] inputbuffer = Encoding.Unicode.GetBytes(text);
-        byte[] outputBuffer = transform.TransformFinalBlock(inputbuffer, 0, inputbuffer.Length);
-        return Convert.ToBase64String(outputBuffer);
-    }
-
-    public static string SimpleDecrypt(string text)
-    {
-        SymmetricAlgorithm algorithm = DES.Create();
-        ICryptoTransform transform = algorithm.CreateDecryptor(encryptKey, encryptIv);
-        byte[] inputbuffer = Convert.FromBase64String(text);
-        byte[] outputBuffer = transform.TransformFinalBlock(inputbuffer, 0, inputbuffer.Length);
-        return Encoding.Unicode.GetString(outputBuffer);
     }
 
     public static bool ContainsCaseInsensitive(string s, string sFind)
