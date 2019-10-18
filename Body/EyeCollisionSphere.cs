@@ -55,7 +55,6 @@ public class EyeCollisionSphere : MonoBehaviour
                 thing.isPassable                    ||
                 thingPart.invisible                 ||
                 thingPart.isLiquid                  ||
-                thingPart.isInInventoryOrDialog     ||
                 mayContainMovement                  ||
                 isSmallish
             );
