@@ -39,13 +39,17 @@ public static class CrossDevice
 
     public static void Init()
     {
-	oculusTouchLegacyMode = PlayerPrefs.GetInt(oculusTouchLegacyMode_key, 0) == 1;
-        string model = UnityEngine.XR.XRDevice.model != null ?
-            UnityEngine.XR.XRDevice.model : "";
-        type = GetTypeByModelName(model);
+		oculusTouchLegacyMode = PlayerPrefs.GetInt(oculusTouchLegacyMode_key, 0) == 1;
+        type = GetTypeByModelName(GetVrModelString());
         SetButtonMappingForType();
     }
-    
+
+    public static string GetVrModelString()
+    {
+        return UnityEngine.XR.XRDevice.model != null ?
+            UnityEngine.XR.XRDevice.model : "";
+    }
+   
     static string GetModelOverride()
     {
         string modelOverride = null;
@@ -83,7 +87,7 @@ public static class CrossDevice
 
         model = model.ToLower();
         
-        if ( model.Contains("rift") )
+        if ( model.Contains("rift") || model.Contains("quest") )
         {
             thisType = DeviceType.OculusTouch;
         }
