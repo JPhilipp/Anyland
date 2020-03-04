@@ -39,7 +39,7 @@ public static class CrossDevice
 
     public static void Init()
     {
-		oculusTouchLegacyMode = PlayerPrefs.GetInt(oculusTouchLegacyMode_key, 0) == 1;
+	oculusTouchLegacyMode = PlayerPrefs.GetInt(oculusTouchLegacyMode_key, 0) == 1;
         type = GetTypeByModelName(GetVrModelString());
         SetButtonMappingForType();
     }
